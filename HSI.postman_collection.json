@@ -1,0 +1,353 @@
+{
+	"info": {
+		"_postman_id": "9e654c3d-1a4a-4f00-bc09-0389e3a939b8",
+		"name": "HSI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6793512"
+	},
+	"item": [
+		{
+			"name": "GET USER BY ID",
+			"item": [
+				{
+					"name": "SUCCESS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/detail/1",
+							"host": ["{{base_url}}"],
+							"path": ["detail", "1"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FAILED",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/detail/99",
+							"host": ["{{base_url}}"],
+							"path": ["detail", "99"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CREATE USER",
+			"item": [
+				{
+					"name": "SUCCESS",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nama\": \"usman\",\n    \"email\": \"usman200@mail.com\",\n    \"umur\": 26,\n    \"tanggal_lahir\": \"1/2/1997\",\n    \"role\": \"siswa\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/create",
+							"host": ["{{base_url}}"],
+							"path": ["create"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FAILED ROLE & AGE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nama\": \"tono\",\n    \"email\": \"tono@mail.com\",\n    \"umur\": 10,\n    \"tanggal_lahir\": \"1/2/1997\",\n    \"role\": \"student\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/create",
+							"host": ["{{base_url}}"],
+							"path": ["create"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FAILED DUPLICATE EMAIL",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nama\": \"tono\",\n    \"email\": \"tono@mail.com\",\n    \"umur\": 20,\n    \"tanggal_lahir\": \"1/2/1997\",\n    \"role\": \"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/create",
+							"host": ["{{base_url}}"],
+							"path": ["create"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UPDATE USER",
+			"item": [
+				{
+					"name": "SUCCESS",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nama\": \"usman updated\",\n    \"email\": \"usman@mail.com\",\n    \"umur\": 26,\n    \"tanggal_lahir\": \"1/2/1997\",\n    \"role\": \"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/update/1",
+							"host": ["{{base_url}}"],
+							"path": ["update", "1"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FAILED NOT FOUND",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nama\": \"usman updated\",\n    \"email\": \"usman@mail.com\",\n    \"umur\": 26,\n    \"tanggal_lahir\": \"1/2/1997\",\n    \"role\": \"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/update/99999",
+							"host": ["{{base_url}}"],
+							"path": ["update", "99999"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FAILED DUPLICATE EMAIL",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nama\": \"tono updated\",\n    \"email\": \"usman@mail.com\",\n    \"umur\": 26,\n    \"tanggal_lahir\": \"1/2/1997\",\n    \"role\": \"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/update/2",
+							"host": ["{{base_url}}"],
+							"path": ["update", "2"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FAILED ROLE & AGE",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nama\": \"joki updated\",\n    \"email\": \"joko@mail.com\",\n    \"umur\": 10,\n    \"tanggal_lahir\": \"1/2/1997\",\n    \"role\": \"teacher\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/update/3",
+							"host": ["{{base_url}}"],
+							"path": ["update", "3"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DELETE USER",
+			"item": [
+				{
+					"name": "SUCCESS",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/delete/1",
+							"host": ["{{base_url}}"],
+							"path": ["delete", "1"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FAILED NOT FOUND",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/delete/9999",
+							"host": ["{{base_url}}"],
+							"path": ["delete", "9999"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BULK INSERT",
+			"item": [
+				{
+					"name": "SUCCESS",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\" : [\n        {\n            \"nama\": \"usman 1\",\n            \"email\": \"usman1@mail.com\",\n            \"umur\": 26,\n            \"tanggal_lahir\": \"1/2/1997\",\n            \"role\": \"admin\"\n        },\n        {\n            \"nama\": \"usman 2\",\n            \"email\": \"usman2@mail.com\",\n            \"umur\": 26,\n            \"tanggal_lahir\": \"1/2/1997\",\n            \"role\": \"admin\"\n        },\n        {\n            \"nama\": \"usman 3\",\n            \"email\": \"usman3@mail.com\",\n            \"umur\": 26,\n            \"tanggal_lahir\": \"1/2/1997\",\n            \"role\": \"admin\"\n        },\n        {\n            \"nama\": \"usman 4\",\n            \"email\": \"usman4@mail.com\",\n            \"umur\": 26,\n            \"tanggal_lahir\": \"1/2/1997\",\n            \"role\": \"admin\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/create/bulk",
+							"host": ["{{base_url}}"],
+							"path": ["create", "bulk"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FAILED DUPLICATE EMAIL",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\" : [\n        {\n            \"nama\": \"usman 1\",\n            \"email\": \"usman@mail.com\",\n            \"umur\": 26,\n            \"tanggal_lahir\": \"1/2/1997\",\n            \"role\": \"admin\"\n        },\n        {\n            \"nama\": \"usman 2\",\n            \"email\": \"joko@mail.com\",\n            \"umur\": 26,\n            \"tanggal_lahir\": \"1/2/1997\",\n            \"role\": \"admin\"\n        },\n        {\n            \"nama\": \"usman 3\",\n            \"email\": \"usman3@mail.com\",\n            \"umur\": 26,\n            \"tanggal_lahir\": \"1/2/1997\",\n            \"role\": \"admin\"\n        },\n        {\n            \"nama\": \"usman 4\",\n            \"email\": \"usman4@mail.com\",\n            \"umur\": 26,\n            \"tanggal_lahir\": \"1/2/1997\",\n            \"role\": \"admin\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/create/bulk",
+							"host": ["{{base_url}}"],
+							"path": ["create", "bulk"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BULK DELETE",
+			"item": [
+				{
+					"name": "SUCCESS",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"usersID\": [2,3]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/delete/bulk",
+							"host": ["{{base_url}}"],
+							"path": ["delete", "bulk"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FAILED NOT FOUND",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"usersID\": [9999, 9123123]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/delete/bulk",
+							"host": ["{{base_url}}"],
+							"path": ["delete", "bulk"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GET ALL USERS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/list",
+					"host": ["{{base_url}}"],
+					"path": ["list"]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000/users"
+		}
+	]
+}
